@@ -1,0 +1,112 @@
+{% extends "home.html" %} <!-- home.html dosyasını temel alan bir şablon oluşturur -->
+{% load static %} <!-- statik dosyaları yüklemek için gerekli -->
+{% block content %} <!-- içeriğin yerleştirileceği blok başlangıcı -->
+{% if request.session.user_id %} <!-- kullanıcı oturumu kontrolü -->
+
+<!-- Kullanıcı Bilgileri Tablosu -->
+<link rel="stylesheet" href="{% static 'css/user.css' %}">
+<div class="container">
+    <h2>Kullanıcı Bilgileri</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- Tablo başlıkları -->
+                <th scope="col">Ad</th>
+                <th scope="col">Soyad</th>
+                <th scope="col">Kullanıcı Adı</th>
+                <th scope="col">Mail Adresi</th>
+                <th scope="col">Parola</th>
+                <th scope="col">Çıktı Al</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- Kullanıcı bilgileri -->
+                <td>{{ user_info.name }}</td>
+                <td>{{ user_info.surname }}</td>
+                <td>{{ user_info.username }}</td>
+                <td>{{ user_info.user_mail }}</td>
+                <!-- Şifre sıfırlama linki -->
+                <td><a class="btn btn-warning" href="{% url 'reset_password' %}">Şifreyi Sıfırla</a></td>
+                <!-- Yazdır butonu -->
+                <td><button class="btn btn-success" onclick="window.print()">Yazdır</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Doğru Yapılan Kelimeler Tablosu -->
+<div class="container">
+    <h2>Doğru Yapılan Kelimeler</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- Tablo başlıkları -->
+                <th scope="col">Kelime</th>
+                <th scope="col">İlk Yanıtlama Tarihi</th>
+                <th scope="col">Doğru Yanıtlama Sayısı</th>
+                <th scope="col">Bir Sonraki Görünüm Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Doğru yanıtlanmış kelimeler döngüsü -->
+            {% for answer in correct_answers %}
+            <tr>
+                <!-- Kelime bilgileri -->
+                <td>{{ answer.2 }}</td>
+                <td>{{ answer.3 }}</td>
+                <td>{{ answer.5 }}</td>
+                <td>{{ answer.6 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Soru Sayısını Değiştirme Formu -->
+<form class="container" method="POST">
+    {% csrf_token %} <!-- CSRF koruma tokeni -->
+    <input type="hidden" name="form_type" value="change_question_count"> <!-- Form ayrımı için gizli alan -->
+    <div class="form-group">
+        <h2>Soru Sayısını Değiştirin</h2>
+        <!-- Soru sayısı girişi -->
+        <input type="text" name="number_question" placeholder="Soru Sayısını Girin">
+    </div>
+    <!-- Formu gönderme butonu -->
+    <button class="btn btn-primary" type="submit">Soru Sayısını Değiştir</button>
+</form>
+
+<!-- Yeni Kelime Ekleme Formu -->
+<form method="POST" class="container my-4 p-5">
+    {% csrf_token %} <!-- CSRF koruma tokeni -->
+    <input type="hidden" name="form_type" value="add_word"> <!-- Form ayrımı için gizli alan -->
+    <div class="form-group">
+        <h2>Yeni Kelimeler Ekleyin</h2>
+        <!-- Yeni kelime girişi -->
+        <input type="text" name="word" placeholder="Kelime">
+    </div>
+    <div class="form-group">
+        <!-- Doğru anlam girişi -->
+        <input type="text" name="true_word" placeholder="Doğru Anlam">
+    </div>
+    <div class="form-group">
+        <!-- Yanlış anlam 1 girişi -->
+        <input type="text" name="false_word1" placeholder="Yanlış Anlam 1">
+    </div>
+    <div class="form-group">
+        <!-- Yanlış anlam 2 girişi -->
+        <input type="text" name="false_word2" placeholder="Yanlış Anlam 2">
+    </div>
+    <!-- Formu gönderme butonu -->
+    <button class="btn btn-primary" type="submit">Kelime Havuzuna Ekle</button>
+
+    <!-- Mesaj gösterimi -->
+    {% if message %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endif %}
+</form>
+
+{% endif %} <!-- Oturum kontrolü sonu -->
+{% endblock %} <!-- İçerik bloğu sonu -->

@@ -1,0 +1,82 @@
+/* Genel stiller */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2c3e50; /* Koyu mavi tonu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    width: 350px;
+    background-color: #34495e; /* Koyu mavi tonu */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #fff; /* Beyaz */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inputField {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #3f566b; /* Koyu mavi tonu */
+    border: none;
+    border-radius: 5px;
+    color: #fff; /* Beyaz */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    background-color: #516a81; /* Daha koyu mavi tonu */
+}
+
+label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #ccc; /* Açık gri tonu */
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.inputField input:focus + label,
+.inputField input:valid + label {
+    top: 0;
+    font-size: 12px;
+    color: #fff; /* Beyaz */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #2980b9; /* Mavi tonu */
+    border: none;
+    border-radius: 5px;
+    color: #fff; /* Beyaz */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1c6ca8; /* Daha koyu mavi tonu */
+}

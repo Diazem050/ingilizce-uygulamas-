@@ -1,0 +1,63 @@
+/* Navbar Genel Stilleri */
+.navbar {
+    border-bottom: 2px solid #4a7d47;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3e%3cpath d="M4 6h16a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 6h16a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" fill="%234a7d47" /%3e%3c/svg%3e');
+}
+
+/* Menü İçeriği Stilleri */
+.navbar-nav .nav-link {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.nav-item h2 {
+    margin: 10px;
+    font-size: 24px;
+}
+
+/* Buton Stilleri */
+.nav-link.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.bg-danger {
+    background-color: #f44336 !important;
+}
+
+.bg-primary {
+    background-color: #2196f3 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+/* Responsive Düzenleme */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        margin-right: 10px;
+    }
+
+    .navbar-brand {
+        margin-right: auto;
+    }
+}

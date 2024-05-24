@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İngilizce Öğren</title>
+    <link rel="stylesheet" href="{% static 'css/abc.css' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white px-4" href="{% url 'homePage' %}">İngilizce Öğren</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if request.session.user_id %}
+                    <!-- Kullanıcı giriş yapmışsa -->
+                    <li class="nav-item">
+                        <h2 class="bg-danger text-white rounded m-3">Hoş geldin, {{request.session.username}}</h2>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn bg-primary text-white m-3" href="{% url 'logOut' %}">Çıkış Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn bg-primary text-white m-3" href="{% url 'userProfil' %}">Profili Görüntüle</a>
+                    </li>
+                {% else %}
+                    <!-- Kullanıcı giriş yapmamışsa -->
+                    <li class="nav-item">
+                        <a class="nav-link btn bg-primary text-white" href="{% url 'loginPage' %}">Giriş Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn bg-warning text-white" href="{% url 'registerPage' %}">Kayıt Ol</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>

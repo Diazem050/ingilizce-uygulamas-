@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins';
+}
+
+html,
+body {
+    background-color: #1E3C72; /* Arka plan rengi koyu mavi */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 50% !important;
+}
+
+input[type=text],
+input[type=password] {
+    display: block;
+    width: 77%;
+    margin-left: 10.5%;
+    margin-top: 6%;
+    margin-bottom: 2%;
+    min-width: 100px;
+    height: 30px;
+    padding: 4px;
+    padding-right: 4px;
+    padding-left: 4px;
+    border: none;
+    border-radius: 2px;
+    background-color: #1E3C72; /* Arka plan rengi koyu mavi */
+    border-bottom: 2px solid #0B0C10; /* Alt çizgi rengi koyu maviye dönüştürüldü */
+    font-size: 18px;
+    z-index: 3;
+    color: white; /* Yazı rengi beyaza dönüştürüldü */
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    outline: none;
+}
+
+input[type=text]:autofill,
+input[type=password]:autofill {
+    background-color: #0B0C10 !important; /* Otomatik doldurma rengi koyu maviye dönüştürüldü */
+}
+
+.container {
+    position: relative;
+    margin: auto;
+    margin-top: 10vh;
+    width: clamp(350px, 30%, 420px);
+    height: auto;
+    background-color: #0B0C10; /* Arka plan rengi koyu mavi */
+    border-radius: 35px;
+    box-sizing: content-box;
+    box-shadow: 0 0 20px -8px #4a7d47;
+    padding: 20px 0;
+}
+
+.box {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 24px;
+    font-family: 'Poppins';
+    padding-bottom: 15px;
+    color: #45A29E; /* Başlık rengi turkuaz maviye dönüştürüldü */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+label {
+    position: relative;
+    top: -40px;
+    margin-left: 10.5%;
+    font-size: 18px;
+    z-index: 0;
+    transition: all 0.4s;
+    pointer-events: none;
+    color: white; /* Yazı rengi beyaza dönüştürüldü */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input:focus~label,
+input:valid~label {
+    font-size: 14px;
+    top: -70px;
+    transition: all 0.2s;
+    color: #45A29E; /* Yazı rengi turkuaz maviye dönüştürüldü */
+}
+
+input:valid~.error {
+    display: none;
+}
+
+.inputField {
+    height: 60px;
+}
+
+.error {
+    display: none;
+    width: 80%;
+    margin: auto;
+    color: #BF4E65; /* Hata mesajı rengi koyu kırmızıya dönüştürüldü */
+    margin-top: -20px;
+}
+
+input[aria-invalid="true"] {
+    border-bottom: 2px solid #BF4E65; /* Hatalı giriş alt çizgisi rengi koyu kırmızıya dönüştürüldü */
+}
+
+.login-btn button {
+    position: relative;
+    width: 90%;
+    padding: 10px;
+    background-color: #0B0C10; /* Buton arka plan rengi koyu mavi */
+    color: #45A29E; /* Buton yazı rengi turkuaz mavi */
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 18px;
+    box-shadow: 0 0 10px -5px #0B0C10; /* Buton gölgesi koyu mavi */
+    transition: all 0.1
+}
